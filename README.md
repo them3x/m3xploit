@@ -7,17 +7,20 @@
 * *Reverse shell*
 * *Send a simple msg for the client m3xploit*
 
-**Requeriments for server:
-**
+**Requeriments for server:**
 ```
 None
 ```
 
-**Requeriments for compile Client:
-**
+**Requeriments for compile Client:**
 ```
 pythoncom
 pyHook
 ImageGrap
 cv2
 ```
+
+**in the next version**
+* obfuscation to circumvent antivirus
+* bug fix
+* download victim files
