@@ -1,6 +1,5 @@
 # m3xploit 1.1.0
 
-**##BETA VERSION##**
 * *Take a screenshot*
 * *Take a webcam shot*
 * *Live keylogger*
