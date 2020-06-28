@@ -1,4 +1,4 @@
-# m3xploit BETA VERSION
+# m3xploit 1.1.0
 
 **##BETA VERSION##**
 * *Take a screenshot*
@@ -6,6 +6,7 @@
 * *Live keylogger*
 * *Reverse shell*
 * *Send a simple msg for the client m3xploit*
+* *AutoRun*
 
 **Requeriments for server:**
 ```
@@ -16,7 +17,10 @@ None
 ```
 pythoncom
 pyHook
-ImageGrap
+pyautogui
+tempfile
+PIL
+ImageGrab
 cv2
 ```
 
