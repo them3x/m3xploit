@@ -24,7 +24,7 @@ cv2
 ```
 
 **in the next version**
-* obfuscation to circumvent antivirus
+* obfuscation to bypass antivirus
 * bug fix
 * download victim files
 * dump chrome passowrds
